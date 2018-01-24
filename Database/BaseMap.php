@@ -22,7 +22,7 @@
 			}
 			foreach ($_DataResult as $a1) {
 				foreach ($a1 as $key1 => $value1) {
-					PRINT $key1." = ".$value1."</br>";
+					//PRINT $key1." = ".$value1."</br>";
 				}
 			}
 			return $_DataResult;
