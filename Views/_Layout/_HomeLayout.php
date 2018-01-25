@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,14 +10,18 @@
 	?>
 </head>
 <body>
+	<div class="loading"></div>
 	<h2>Chào User</h2>
 	<!-- BEGIN BODY LAYOUT -->
-	<?php $body = new $_controller($_action);?>
+	<?php 
+		//echo $body
+		$body = new $_controller($_action);
+	?>
 	<!-- END BODY LAYOUT -->
 </body>
 <script type="text/javascript">
 	$(document).ready(function() {
-		alert("Scripts hoạt động!");
+		//alert("Scripts hoạt động!");
 	});
 </script>
 </html>
