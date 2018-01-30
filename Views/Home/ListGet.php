@@ -38,30 +38,25 @@
 	<div class="container">
 		<ul class="pagination" id="pagination"></ul>
 	</div>
-	<div class="upload">
-		<form id="formUpload" action="Home/Upload" method="post" enctype="multipart/form-data">
-			<input type="file" id="file" name="file" size="20">
-			<input type="submit" name="upload" value="Upload">
-		</form>
-	</div>
 
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('.pagination').pagination({
+				// debugger;
 				items: <?=$_DataResult->TotalRows?>,
 				itemOnPage: 9,
 				currentPage: <?=$_PageIndex?>,
 				cssStyle: 'dark-theme',
-				prevText: '<span aria-hidden="true">&laquo;</span>',
-				nextText: '<span aria-hidden="true">&raquo;</span>',
 				onInit: function () {
-	            // fire first page loading
-	        },
-	        onPageClick: function (page, evt) {
-	        	console.log(page);
-	        	SendPagination(page);
-	        }
-	    });
+	            	// fire first page loading
+	        	},
+	        	onPageClick: function (page, evt) {
+		        	//alert(window.location.uri);
+		        	//debugger;
+		        	console.log(page);
+		        	SendPagination(page);
+	        	}
+	   		});
 		});
 	</script>
 <?php endif; ?>

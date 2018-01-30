@@ -15,7 +15,16 @@
 			//$_ReturnData = $this->model->Single(5);
 			//PRINT var_dump($_GET["page"]);
 			//print var_dump($_ReturnData);
+			//echo "Index";
 			require("Views/Home/Index.php");
+		}
+
+		public function List(){
+			//$_ReturnData = $this->model->GetList();
+			//$_ReturnData = $this->model->Single(5);
+			//PRINT var_dump($_GET["page"]);
+			//print var_dump($_ReturnData);
+			require("Views/Home/List.php");
 		}
 
 		public function UploadImg(){
@@ -35,6 +44,11 @@
 			}
 			exit("rỗng!");
 
+		}
+		public function InsertOrUpdate(){
+			//echo "Insert";
+			
+			require "Views/Home/";
 		}
 	}
  ?>

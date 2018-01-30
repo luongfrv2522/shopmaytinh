@@ -4,6 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>ShopMayTinh</title>
+	<base href="<?=BaseURI::getBaseURL()?>shopmaytinh/">
 	<?php 
 		require "Content/Css/Common.php"; 
 		require "Content/Scripts/Common.php";
@@ -19,10 +20,5 @@
 	?>
 	<!-- END BODY LAYOUT -->
 </body>
-<script type="text/javascript">
-	$(document).ready(function() {
-		//alert("Scripts hoạt động!");
-	});
-</script>
 </html>
 <?php exit(); ?>

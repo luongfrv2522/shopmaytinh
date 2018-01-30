@@ -1,6 +1,14 @@
 <?php 
-	
-	 class MyUploadLB{
+	class BaseURI{
+		public static function getBaseURL(){
+			return sprintf(
+				"%s://%s%s",
+				isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',
+				$_SERVER['SERVER_NAME'],"/"
+			);
+		}
+	} 
+	class MyUploadLB{
 
 		public static function isImgFile($string)
 		{
@@ -14,7 +22,7 @@
 			}
 			return false;
 		}
-
+		
 		public static function UploadImage($Url){
 			$_ReturnData = new StdClass;
 			//ECHO var_dump($_FILES['file']['name']);
@@ -53,5 +61,4 @@
 			//die(json_encode(array('Status'=>-1)));
 		}
 	}
-	
 ?>

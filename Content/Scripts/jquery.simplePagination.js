@@ -9,7 +9,6 @@
 */
 
 (function($){
-
 	var methods = {
 		init: function(options) {
 			var o = $.extend({
@@ -39,7 +38,7 @@
 					// Page number is given as an optional parameter
 				},
 				onInit: function() {
-					// Callback triggered immediately after initialization
+					alert("inpaging: "+window.location.href);
 				}
 			}, options || {});
 
@@ -307,7 +306,11 @@
 				$link = $('<span class="current">' + (options.text) + '</span>');
 			} else {
 				if (o.useAnchors) {
-					$link = $('<a href="' + o.hrefTextPrefix + (pageIndex + 1) + o.hrefTextSuffix + '" class="page-link">' + (options.text) + '</a>');
+					var baseURI = window.location.href;
+					if(window.location.hash !== ""){
+						baseURI = baseURI.replace(window.location.hash,"");
+					}
+					$link = $('<a href="'+ baseURI + o.hrefTextPrefix + (pageIndex + 1) + o.hrefTextSuffix + '" class="page-link">' + (options.text) + '</a>');
 				} else {
 					$link = $('<span >' + (options.text) + '</span>');
 				}

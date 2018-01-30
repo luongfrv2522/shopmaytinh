@@ -1,4 +1,3 @@
-<h2><a href="Home/List">GO</a></h2>
 <?php 
 	//PRINT "Views/Home/Index";
 	//PRINT var_dump($_DataResult);
@@ -14,7 +13,9 @@
 		<input type="submit" name="upload" value="Upload">
 	</form>
 </div>
-
+<div>
+	<h2><a href="Home/InsertOrUpdate">Insert</a></h2>
+</div>
 
 
 <script type="text/javascript">
@@ -47,7 +48,7 @@
 			type: 'POST',
 			dataType: 'json',
 			data: form_data,
-			cache: false,
+			//cache: false,
 			contentType: false,
 			processData: false,
 			beforeSend: function (xhr) {
