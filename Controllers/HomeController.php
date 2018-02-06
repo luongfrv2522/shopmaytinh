@@ -45,10 +45,31 @@
 			exit("rỗng!");
 
 		}
+
 		public function InsertOrUpdate(){
 			//echo "Insert";
+			$_DataResult = false; //tạm thời chỉ thử insert
+			require "Views/Home/CreateOrUpdate.php";
+		}
+
+		public function InsertOrUpdatePost(){
+			$item = new Computer();
+			$item->ComId = 0;
+			$item->ComName = $_POST["Name"];
+			$item->Description = $_POST["Desc"];
+			$item->Price = $_POST["Price"];
+			$item->Status = $_POST["Status"];
+			$item->BrandId = $_POST["BrandId"];
+			$item->Posistion = $_POST["Posistion"];
+			$item->Image = $_POST["ImageUrl"];
+
+			$rs = $this->model->InsertOrUpdate($item);
+			if($rs){
+				die(json_encode(array('status'=>1)));
+			}
+			die(json_encode(array('result'=>-1)));
 			
-			require "Views/Home/";
+			//echo var_dump($item);
 		}
 	}
  ?>

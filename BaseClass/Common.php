@@ -23,6 +23,10 @@
 			return false;
 		}
 		
+		/**
+		 * Hàm hỗ trợ update ảnh
+		 * @param {string} $Url [Đường dẫn folder muốn lưu: folder/folder/]
+		 */
 		public static function UploadImage($Url){
 			$_ReturnData = new StdClass;
 			//ECHO var_dump($_FILES['file']['name']);

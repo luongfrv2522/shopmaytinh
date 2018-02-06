@@ -17,6 +17,7 @@
 		</thead>
 		<tbody>
 			<?php foreach($_DataResult->DataList as $key): ?>
+				<?php $datecreated = new DateTime($key->Created); ?>
 				<tr>
 					<td><?=$key->ComId?></td>
 					<td><?=$key->ComName?></td>
@@ -29,7 +30,7 @@
 					<td><?=$key->BrandId?></td>
 					<td><?=$key->BrandName?></td>
 					<td><?=$key->Posistion?></td>
-					<td><?=$key->Created?></td>
+					<td><input type="datetime-local" name="" value="<?=$datecreated->format("Y-m-d\TH:i")?>"></td>
 					<td><?=$key->Updated?></td>
 				</tr>
 			<?php endforeach; ?>

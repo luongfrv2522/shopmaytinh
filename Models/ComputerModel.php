@@ -79,6 +79,7 @@
 						,`BrandId`={$_BrandId},`Updated`= CURRENT_TIMESTAMP
 						WHERE `ComId` = {$_Id}";
 			}
+
 			$_Result = $this->conn->ExcuteSQL($sql);
 			return $_Result;
 		}
