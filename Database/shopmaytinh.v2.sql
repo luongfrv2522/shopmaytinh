@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 30, 2018 at 04:45 PM
+-- Generation Time: Feb 09, 2018 at 08:05 AM
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.2.0
 
@@ -110,7 +110,13 @@ INSERT INTO `computers` (`ComId`, `ComName`, `Description`, `Image`, `Price`, `S
 (33, 'Dell latinute 1155', 'Không có mô tả', 'Content/Images/Icon/Latitude_polaris_sub_cat_franchise_module_carousel_1_win8_alt.jpg', '12000000', 1, 1, 1, '2018-01-25 15:29:25', '2018-01-25 15:29:25'),
 (34, 'Dell latinute 1155', 'Không có mô tả', 'Content/Images/Icon/Latitude_polaris_sub_cat_franchise_module_carousel_1_win8_alt.jpg', '12000000', 1, 1, 1, '2018-01-25 15:29:25', '2018-01-25 15:29:25'),
 (35, 'Dell latinute 1155', 'Không có mô tả', 'Content/Images/Icon/Latitude_polaris_sub_cat_franchise_module_carousel_1_win8_alt.jpg', '12000000', 1, 1, 1, '2018-01-25 15:29:25', '2018-01-25 15:29:25'),
-(36, 'Dell latinute 1155', 'Không có mô tả', 'Content/Images/Icon/Latitude_polaris_sub_cat_franchise_module_carousel_1_win8_alt.jpg', '12000000', 1, 1, 1, '2018-01-25 15:29:25', '2018-01-25 15:29:25');
+(36, 'Dell latinute 1155', 'Không có mô tả', 'Content/Images/Icon/Latitude_polaris_sub_cat_franchise_module_carousel_1_win8_alt.jpg', '12000000', 1, 1, 1, '2018-01-25 15:29:25', '2018-01-25 15:29:25'),
+(37, 'Phân quyền User', 'áddsa', 'TamThoi', '1', 1, 1, 1, '2018-02-05 16:41:33', '2018-02-05 16:41:33'),
+(38, 'Phân quyền User', 'áddsa', 'TamThoi', '1', 1, 1, 1, '2018-02-05 16:42:17', '2018-02-05 16:42:17'),
+(39, 'Phân quyền User', 'áddsa', 'TamThoi', '1', 1, 1, 1, '2018-02-05 16:42:48', '2018-02-05 16:42:48'),
+(40, 'Phân quyền User', 'áddsa', 'TamThoi', '1', 1, 1, 1, '2018-02-05 16:51:58', '2018-02-05 16:51:58'),
+(41, 'Phân quyền User', 'áddsa', 'TamThoi', '1', 1, 1, 1, '2018-02-05 16:52:16', '2018-02-05 16:52:16'),
+(42, 'Phân quyền User', 'áddsa', 'TamThoi', '1', 1, 1, 1, '2018-02-05 16:52:37', '2018-02-05 16:52:37');
 
 -- --------------------------------------------------------
 
@@ -190,8 +196,8 @@ ALTER TABLE `computers`
 -- Indexes for table `computers_map_gallerys`
 --
 ALTER TABLE `computers_map_gallerys`
-  ADD PRIMARY KEY (`ComId`,`GalleryId`),
-  ADD KEY `GalleryId` (`GalleryId`);
+  ADD KEY `GalleryId` (`GalleryId`),
+  ADD KEY `ComId` (`ComId`) USING BTREE;
 
 --
 -- Indexes for table `detail`
@@ -225,7 +231,7 @@ ALTER TABLE `brands`
 -- AUTO_INCREMENT for table `computers`
 --
 ALTER TABLE `computers`
-  MODIFY `ComId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `ComId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `gallerys`

@@ -7,14 +7,15 @@
 	$brand_id = "";
 	$posistion = "";
 	if($_DataResult != false){
-			$name = $_DataResult->ComName;
-			$desc = $_DataResult->Description;
-			$image = $_DataResult->Image;
-			$price = $_DataResult->Price;
-			$status = $_DataResult->Status;
-			$brand_id = $_DataResult->BrandId;
-			$posistion = $_DataResult->Posistion;
+		$name = $_DataResult->ComName;
+		$desc = $_DataResult->Description;
+		$image = $_DataResult->Image;
+		$price = $_DataResult->Price;
+		$status = $_DataResult->Status;
+		$brand_id = $_DataResult->BrandId;
+		$posistion = $_DataResult->Posistion;
 	}
+	
 ?>
 
 	<h2>Nhập thông tin</h2>
@@ -34,7 +35,8 @@
 			Vị trí sản phẩm:<br>
 			<input type="number" id="Posistion" name="Posistion" value="<?=$posistion?>"><br><br>
 
-			<input type="file" id="Image" name="Image" value="<?=$image?>"><br><br>
+			<div><img src="<?=$image?>"></div>
+			<input type="file" id="file" name="Image" url=""><br><br>
 			<input type="submit" name="Submit" >
 			<input type="reset" name="">
 		</form>
@@ -43,11 +45,11 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		$("form").submit(function(){
+		$("form").submit(function(event){
+			event.preventDefault();
+			SendUploadAjax();
 			InsertAjax();
-
-
-			return false;
+			//return false;
 		});
 	});
 
@@ -58,7 +60,7 @@
 		var status = $('#Status').val();
 		var brand_id = $('#Brand_id').val();
 		var posistion = $('#Posistion').val();
-		var image_url = "TamThoi";
+		var image_url = $('#file').attr('url');
 		
 		var dataForm={
 			Name : name,
@@ -80,4 +82,44 @@
 			}
 		});
 	}
+
+	function SendUploadAjax() {
+		var resultData;
+		var form_data = new FormData();
+		var file_data = $('#file').prop('files')[0];//$('[id của input file]').prop('files')[0];
+		form_data.append('file',file_data);//Bắt buộc để tên là file
+		$.ajax({
+			async: false,//Tắt bất đồng bộ của AJAX
+			url: 'Home/UploadImg',
+			type: 'POST',
+			dataType: 'json',
+			data: form_data,
+			cache: false,
+			contentType: false,
+			processData: false,
+			enctype: "multipart/form-data",
+			beforeSend: function (xhr) {
+				$(".loading").show();
+			},
+			success : function(result){
+				//console.log(result);
+				// console.log(result.Status);
+				//alert(result.Msg);
+				if(result.Status > 0){
+					//alert(result.Data);
+					$('#file').attr('url',result.Data);
+				}
+				resultData = result;
+			},
+			error : function(error){
+				alert("Lỗi Ajax");
+			},
+			complete: function () {
+				$(".loading").hide();
+			}
+		});
+
+		return resultData;
+	}
 </script>
+

@@ -22,7 +22,7 @@ if (!empty($_GET["c"])) {
 	if($_area ==="admin"){
 		require "Views/_Layout/_AdminLayout.php";
 	}
-	else if($_SERVER['REQUEST_METHOD'] == 'POST') {
+	else if($_SERVER['REQUEST_METHOD'] == 'POST' || !empty($_GET["method"])) {
 		//ECHO $_SERVER['REQUEST_METHOD'];
 		$body = new $_controller($_action);
 	}

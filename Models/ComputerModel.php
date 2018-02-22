@@ -19,7 +19,8 @@
 												c.`Image`, c.`Price`, c.`Status`, c.`Posistion`, 
 												c.`BrandId`,b.`BrandName`, c.`Updated`, c.`Created` 
 												FROM `computers` as c,`brands` as b
-												WHERE c.BrandId = b.BrandId");
+												WHERE c.BrandId = b.BrandId
+												ORDER BY c.`ComId`");
 			//print var_dump($datalist);
 			//print var_dump(BaseMap::MapToList($datalist, new Computer()));
 			return BaseMap::MapToList($datalist, new Computer());
@@ -34,6 +35,7 @@
 												c.`BrandId`,b.`BrandName`, c.`Updated`, c.`Created` 
 												FROM `computers` as c,`brands` as b
 												WHERE c.BrandId = b.BrandId
+												ORDER BY c.`ComId`
 												LIMIT {$pageIndex},{$pageSize}" );
 			//print var_dump($datalist);
 			//print var_dump(BaseMap::MapToList($datalist, new Computer()));

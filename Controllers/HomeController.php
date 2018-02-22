@@ -28,9 +28,9 @@
 		}
 
 		public function UploadImg(){
-			require "BaseClass/Common.php";
+			//require "BaseClass/Common.php";
 			//exit(var_dump($_POST));
-			$_DataResult = MyUploadLB::UploadImage("Content/Images/Icon/");
+			$_DataResult = MyUploadLB::UploadImage("file", "Content/Images/Icon/");
 			exit(json_encode($_DataResult));
 		}
 

@@ -1,7 +1,7 @@
 RewriteEngine On
 
 #Tạo Area cho Admin với param là: area=admin
-RewriteRule "^Admin$" "Index.php?area=admin&c=HomeController&a=Index&id=0"
+RewriteRule "^Admin$" "Index.php?area=admin&c=LoginController&a=Index&id=0"
 RewriteRule "^Admin/([a-zA-Z0-9]+)$" "Index.php?area=admin&c=$1Controller&a=Index&id=0"
 RewriteRule "^Admin/([a-zA-Z0-9]+)/([a-zA-Z0-9]+)$" "Index.php?area=admin&c=$1Controller&a=$2&id=0"
 RewriteRule "^Admin/([a-zA-Z0-9]+)/([a-zA-Z0-9]+).html$" "Index.php?area=admin&c=$1Controller&a=$2&id=0"

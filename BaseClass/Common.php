@@ -1,5 +1,20 @@
 <?php 
+
+	class ErrorBase{
+		/**
+		 * [Hàm ghi log]
+		 * @param  [string] $msg [dữ liệu cần ghi log]
+		 */
+		public static function doLog($msg) {
+			error_log(date('Y-m-d H:i:s')." log: " . $msg .PHP_EOL, 3, 'log.log');
+		}
+	}
+
 	class BaseURI{
+		/**
+		 * [Hàm sử dụng lấy link hiện tại trên URL]
+		 * @return [string] [URL hiện tại]
+		 */
 		public static function getBaseURL(){
 			return sprintf(
 				"%s://%s%s",
@@ -25,16 +40,17 @@
 		
 		/**
 		 * Hàm hỗ trợ update ảnh
-		 * @param {string} $Url [Đường dẫn folder muốn lưu: folder/folder/]
+		 * @param {string} $Url [Đường dẫn folder muốn lưu: folder/folder1/]
+		 * @param {string} $file [key of file in FormData]
 		 */
-		public static function UploadImage($Url){
+		public static function UploadImage($file, $Url){
 			$_ReturnData = new StdClass;
 			//ECHO var_dump($_FILES['file']['name']);
-			if(isset($_FILES['file'])){
-				if($_FILES['file']['name']!=null){//Người dũng đã chọn file
+			if(isset($_FILES[$file])){
+				if($_FILES[$file]['name']!=null){//Người dũng đã chọn file
 					//echo $_FILES['file']['name'];
-					if(MyUploadLB::isImgFile($_FILES['file']['type'])){//Kiểm tra là file ảnh
-						if($_FILES['file']['size'] > 15728640){
+					if(MyUploadLB::isImgFile($_FILES[$file]['type'])){//Kiểm tra là file ảnh
+						if($_FILES[$file]['size'] > 15728640){
 							//File quá lớn
 							$_ReturnData->Status = -2;
 							$_ReturnData->Msg = "File quá lớn!";
@@ -42,11 +58,11 @@
 						}
 						else{
 							// file hợp lệ, tiến hành upload
-							$name = $_FILES['file']['name'];
+							$name = $_FILES[$file]['name'];
 			                $path = $Url.$name; // file sẽ lưu vào thư mục data
-			                $tmp_name = $_FILES['file']['tmp_name'];
-			                $type = $_FILES['file']['type']; 
-			                $size = $_FILES['file']['size']; 
+			                $tmp_name = $_FILES[$file]['tmp_name'];
+			                $type = $_FILES[$file]['type']; 
+			                $size = $_FILES[$file]['size']; 
 			                // Upload file
 			                move_uploaded_file($tmp_name,$path);
 			                

@@ -8,7 +8,7 @@
 
 </div>
 <div class="upload">
-	<form id="formUpload" action="Home/Upload" method="post" enctype="multipart/form-data">
+	<form id="formUpload" action="Home/Upload" method="post" >
 		<input type="file" id="file" name="file" size="20">
 		<input type="submit" name="upload" value="Upload">
 	</form>
@@ -41,21 +41,22 @@
 	
 	function SendUploadAjax() {
 		var form_data = new FormData();
-		var file_data = $('#file').prop('files')[0];
-		form_data.append('file',file_data);
+		var file_data = $('#file').prop('files')[0];//$('[id của input file]').prop('files')[0];
+		form_data.append('file',file_data);//Bắt buộc để tên là file
 		$.ajax({
 			url: 'Home/UploadImg',
 			type: 'POST',
 			dataType: 'json',
 			data: form_data,
-			//cache: false,
+			cache: false,
 			contentType: false,
 			processData: false,
+			enctype: "multipart/form-data",
 			beforeSend: function (xhr) {
 				$(".loading").show();
 			},
 			success : function(result){
-				//console.log(result);
+				console.log(result);
 				// console.log(result.Status);
 				alert(result.Msg);
 				if(result.Status > 0){
