@@ -41,7 +41,7 @@
 			<input type="reset" name="">
 		</form>
 	</div>
-	<a href="Home/List">Back</a>
+	<a href="/shopmaytinh/Home/List">Back</a>
 
 <script type="text/javascript">
 	$(document).ready(function() {

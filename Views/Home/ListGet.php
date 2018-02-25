@@ -1,3 +1,8 @@
+<?php 
+	$result = BaseClass::GetValuePost('result'); 
+	$_DataResult = $result->_DataResult; 
+	$_PageIndex = $result->_PageIndex; 
+?>
 <?php if($_DataResult): ?>
 	<table class="table table-bordered">
 		<thead>
@@ -7,7 +12,7 @@
 				<td>Description</td>
 				<td>Image</td>
 				<td>Price</td>
-				<td>Status</td>
+				<td>Status</td>	
 				<td>BrandId</td>
 				<td>BrandName</td>
 				<td>Posistion</td>

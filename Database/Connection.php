@@ -5,7 +5,7 @@
 	class Connection 
 	{
 		private $conn;
-		public function Connection()
+		public function __construct()
 		{
 			//error_reporting(E_ALL & ~ E_NOTICE);//Loại bỏ cảnh báo.
 			 if(empty($this->conn)){

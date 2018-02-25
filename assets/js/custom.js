@@ -57,30 +57,7 @@
             $('#reviews').carousel({
                 interval: 2000 //TIME IN MILLI SECONDS
             })
-        },
-        wizard_fun: function () {
-            /*====================================
-            //horizontal wizrd code section
-             ======================================*/
-            $(function () {
-                $("#wizard").steps({
-                    headerTag: "h2",
-                    bodyTag: "section",
-                    transitionEffect: "slideLeft"
-                });
-            });
-            /*====================================
-            //vertical wizrd  code section
-            ======================================*/
-            $(function () {
-                $("#wizardV").steps({
-                    headerTag: "h2",
-                    bodyTag: "section",
-                    transitionEffect: "slideLeft",
-                    stepsOrientation: "vertical"
-                });
-            });
-        },
+        }
        
         
     };
@@ -89,7 +66,6 @@
         mainApp.loadMenu();
         mainApp.slide_show();
         mainApp.reviews_fun();
-        mainApp.wizard_fun();
        
     });
 }(jQuery));

@@ -17,7 +17,7 @@
 		<!-- BEGIN BODY LAYOUT -->
 		<?php 
 			//echo $body
-			$body = new $_controller($_action);
+			require $_pageBody;
 		?>
 		<!-- END BODY LAYOUT -->
 	</div>

@@ -2,7 +2,7 @@
 
 	class HomeController{
 		private $model;
-		public function HomeController($_action){
+		public function __construct($_action){
 			require "Models/ComputerModel.php";
 
 			$this->model = new ComputerModel();
@@ -16,7 +16,8 @@
 			//PRINT var_dump($_GET["page"]);
 			//print var_dump($_ReturnData);
 			//echo "Index";
-			require("Views/Home/Index.php");
+			// require("Views/Home/Index.php");
+			return HomeLayout::View();
 		}
 
 		public function List(){
@@ -24,7 +25,8 @@
 			//$_ReturnData = $this->model->Single(5);
 			//PRINT var_dump($_GET["page"]);
 			//print var_dump($_ReturnData);
-			require("Views/Home/List.php");
+			//require("Views/Home/List.php");
+			return HomeLayout::View();
 		}
 
 		public function UploadImg(){
@@ -35,12 +37,20 @@
 		}
 
 		public function ListGet(){
+			$result = new ReturnObj();
 			$_PageIndex = !empty($_POST["PageIndex"])? $_POST["PageIndex"] : "1";
 			$_PageSize = !empty($_POST["PageSize"])? $_POST["PageSize"] : "5";
-			$_DataResult = $this->model->GetListPaging($_PageIndex,$_PageSize);
-			if($_DataResult){
-				require("Views/Home/ListGet.php");
-				exit();
+
+			$result->_DataResult = $this->model->GetListPaging($_PageIndex,$_PageSize);
+			$result->_PageIndex = $_PageIndex;
+			$result->_PageSize = $_PageSize;
+			if($result->_DataResult){
+				//require("Views/Home/ListGet.php");
+				
+				
+				BaseClass::SetValuePost('result',$result);
+				return NoneLayout::View();
+				//exit();
 			}
 			exit("rỗng!");
 
@@ -49,7 +59,8 @@
 		public function InsertOrUpdate(){
 			//echo "Insert";
 			$_DataResult = false; //tạm thời chỉ thử insert
-			require "Views/Home/CreateOrUpdate.php";
+			// require "Views/Home/InsertOrUpdate.php";
+			return HomeLayout::View();
 		}
 
 		public function InsertOrUpdatePost(){
@@ -67,7 +78,7 @@
 			if($rs){
 				die(json_encode(array('status'=>1)));
 			}
-			die(json_encode(array('result'=>-1)));
+			die(json_encode(array('status'=>-1)));
 			
 			//echo var_dump($item);
 		}

@@ -1,15 +1,17 @@
 RewriteEngine On
 
-#Tạo Area cho Admin với param là: area=admin
-RewriteRule "^Admin$" "Index.php?area=admin&c=LoginController&a=Index&id=0"
-RewriteRule "^Admin/([a-zA-Z0-9]+)$" "Index.php?area=admin&c=$1Controller&a=Index&id=0"
-RewriteRule "^Admin/([a-zA-Z0-9]+)/([a-zA-Z0-9]+)$" "Index.php?area=admin&c=$1Controller&a=$2&id=0"
-RewriteRule "^Admin/([a-zA-Z0-9]+)/([a-zA-Z0-9]+).html$" "Index.php?area=admin&c=$1Controller&a=$2&id=0"
-RewriteRule "^Admin/([a-zA-Z0-9]+)/([a-zA-Z0-9]+)/([0-9])$" "Index.php?area=admin&c=$1Controller&a=$2&id=$3"
+ErrorDocument 404 /shopmaytinh/Views/404.php
+
+#Tạo Area cho Admin với param là: area=Admin
+RewriteRule "^Admin$" "Index.php?area=Admin&c=LoginController&a=Index&id=0"
+RewriteRule "^Admin/([a-zA-Z0-9]+)$" "Index.php?area=Admin&c=$1Controller&a=Index&id=0"
+RewriteRule "^Admin/([a-zA-Z0-9]+)/([a-zA-Z0-9]+)$" "Index.php?area=Admin&c=$1Controller&a=$2&id=0"
+RewriteRule "^Admin/([a-zA-Z0-9]+)/([a-zA-Z0-9]+).html$" "Index.php?area=Admin&c=$1Controller&a=$2&id=0"
+RewriteRule "^Admin/([a-zA-Z0-9]+)/([a-zA-Z0-9]+)/([0-9])$" "Index.php?area=Admin&c=$1Controller&a=$2&id=$3"
 
 #Nếu không phải các Area ở trên thì chạy bình thường
-RewriteRule "^$" "Index.php?c=HomeController&a=Index&id=0"
-RewriteRule "^([a-zA-Z0-9]+)$" "Index.php?c=$1Controller&a=Index&id=0"
-RewriteRule "^([a-zA-Z0-9]+)/([a-zA-Z0-9]+)$" "Index.php?c=$1Controller&a=$2&id=0"
-RewriteRule "^([a-zA-Z0-9]+)/([a-zA-Z0-9]+).html$" "Index.php?c=$1Controller&a=$2&id=0"
-RewriteRule "^([a-zA-Z0-9]+)/([a-zA-Z0-9]+)/([0-9])$" "Index.php?c=$1Controller&a=$2&id=$3"
+RewriteRule "^$" "Index.php?area=User&c=HomeController&a=Index&id=0"
+RewriteRule "^([a-zA-Z0-9]+)$" "Index.php?area=User&c=$1Controller&a=Index&id=0"
+RewriteRule "^([a-zA-Z0-9]+)/([a-zA-Z0-9]+)$" "Index.php?area=User&c=$1Controller&a=$2&id=0"
+RewriteRule "^([a-zA-Z0-9]+)/([a-zA-Z0-9]+).html$" "Index.php?area=User&c=$1Controller&a=$2&id=0"
+RewriteRule "^([a-zA-Z0-9]+)/([a-zA-Z0-9]+)/([0-9])$" "Index.php?area=User&c=$1Controller&a=$2&id=$3"

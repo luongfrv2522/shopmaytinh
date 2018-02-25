@@ -81,4 +81,24 @@
 			//die(json_encode(array('Status'=>-1)));
 		}
 	}
+	class BaseClass{
+		public static function GetValuePost($key){
+			return isset($_POST[$key])? $_POST[$key] : '';
+		}
+		public static function SetValuePost($key, $value){
+			$_POST[$key] = $value;
+		}
+		public static function GetMD5($pass){
+			return md5($pass.'php');
+		}
+		public static function GetSession($key){
+			return isset($_SESSION[$key])? $_SESSION[$key] : '';
+		}
+		public static function GetCookie($key){
+			return isset($_COOKIE[$key])? $_COOKIE[$key] : '';
+		}
+
+	}
+
+
 ?>
