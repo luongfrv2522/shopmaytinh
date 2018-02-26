@@ -5,7 +5,7 @@
 	error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
 
 	session_start();
-
+	$_SESSION['_root'] = 'shopmaytinh';
 	$body="Lỗi tải Page Body!";
 	if (!empty($_GET["c"])) {
 		//$_PageIndex = !empty($_GET["page"])? $_GET["page"] : "none";

@@ -55,8 +55,8 @@ $(document).ready(function(){
 				console.log(result);
 				if(result.Status < 0){
 					$("#error_msg").text("Tài khoản hoặc mật khẩu không đúng!").fadeIn("fast").fadeOut(2500);
-				}else{
-					location.reload();
+				}else {
+					window.location.href = result.Data;
 				}
 			},
 			error: function(error){

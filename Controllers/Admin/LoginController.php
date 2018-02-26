@@ -35,9 +35,14 @@
 				$_ReturnPost->Status = 1;
 				//Tạo session và lưu trữ cookie
 				$_SESSION['login'] = 'true';
-				//$_ReturnPost->Msg = BaseClass::GetSession('login');
+				$_ReturnPost->Data = 'Admin/Login/Index';
 			}
 			die(json_encode($_ReturnPost));
+		}
+		public function LogOut()
+		{
+			unset($_SESSION['login']);
+			RedirectToAction('Admin/Login/Index');
 		}
 	}
 ?>

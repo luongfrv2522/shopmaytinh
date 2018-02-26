@@ -4,7 +4,6 @@
 	 * Chuyển hướng View và Layout
 	* Dành cho các trang sử dụng layout 
 	*/
-
 	class HomeLayout{
 
 		public static function View(){
@@ -13,7 +12,7 @@
 			$classController = str_replace('Controller','',debug_backtrace()[1]['class']);
 			$actionFunction = debug_backtrace()[1]['function'];
 
-			$_pageBody = $this->root.'/'.$classController.'/'.$actionFunction.'.php';
+			$_pageBody = $root.'/'.$classController.'/'.$actionFunction.'.php';
 			
 			require $root.'/'.'_Layout/_HomeLayout.php';
 		}
@@ -52,7 +51,7 @@
 			$classController = str_replace('Controller','',debug_backtrace()[1]['class']);
 			$actionFunction = debug_backtrace()[1]['function'];
 			//ErrorBase::doLog("NoneLayout url: ".$root.'/'.$classController.'/'.$actionFunction.'.php');
-			require $classController.'/'.$actionFunction.'.php';
+			require 'Views/'.$classController.'/'.$actionFunction.'.php';
 		
 		}
 		/**
@@ -68,5 +67,12 @@
 			$_pageBody = 'Views/'.$urlView;
 			require 'Views/'.'_Layout/'.$Layout.'.php';
 		}
+	}
+
+	/**
+	 * Chuyển hướng đến 1 action bằng link
+	 */
+	function RedirectToAction($Url){
+		return header("location:/".$_SESSION['_root']."/".$Url);
 	}
 ?>
