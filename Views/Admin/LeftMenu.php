@@ -132,6 +132,10 @@
 </nav>
 <script type="text/javascript">
     jQuery(document).ready(function($) {
+        LeftMenuAction();
+    });
+
+    function LeftMenuAction() {
         $(".nav a").click(function(event) {
             $('.nav a').removeClass('active-menu');
             if($(this).parent().parents('li')){
@@ -139,5 +143,7 @@
             }
             $(this).addClass('active-menu');
         });
-    });
+    }
+
+    
 </script>
