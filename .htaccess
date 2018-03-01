@@ -1,6 +1,6 @@
 RewriteEngine On
 
-ErrorDocument 404 /shopmaytinh/Views/404.php
+ErrorDocument 404 /shopmaytinh/Apps/Common/Views/404.php
 
 #Tạo Area cho Admin với param là: area=Admin
 RewriteRule "^Admin$" "Index.php?area=Admin&c=LoginController&a=Index&id=0"

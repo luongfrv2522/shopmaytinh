@@ -1,15 +1,33 @@
 <?php 
-	require "BaseClass/Common.php";
-	require "BaseClass/Redirect.php";
-	require "BaseClass/Return.php";
-	error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
+	// Đường dẫn tới hệ  thống
+	define('PATH_SYS', __DIR__ .'/System');
+	define('PATH_APP', __DIR__ . '/Apps');
+	define('PATH_ROOT', __DIR__);
+	define('_ROOT', 'shopmaytinh');
+	//Các thư viện loader
+	require PATH_SYS.'/Loader/AutoLoad.php';
+	$Loader = array(
+		'Config',
+		'Model',
+		'Com',
+		'Controller',
+		'Hand',
+		'View',
+		'Public'
+	);
+	AutoLoad::Load($Loader);
 
+	ConfigLoader::Load('Config');	
+	//Load các Hàm thư viện
+	ComLoader::Load("BaseClass/Common.php");
+	ComLoader::Load("BaseClass/Return.php");
+	ComLoader::Load("BaseClass/Redirect.php");
 	session_start();
-	$_SESSION['_root'] = 'shopmaytinh';
-	$body="Lỗi tải Page Body!";
 	if (!empty($_GET["c"])) {
 		//$_PageIndex = !empty($_GET["page"])? $_GET["page"] : "none";
 		$_area = empty($_GET["area"])? "" : $_GET["area"];
+		define('AREA', $_area);
+		
 		$_controller = $_GET["c"];
 		$_action = $_GET["a"];
 		$_id = $_GET["id"];
@@ -24,21 +42,10 @@
 		// print "PageIndex: ".$_PageIndex;
 		// print "</br>";echo $_SERVER['SERVER_NAME'];
 		//print "</br>";
-		require "Controllers/".$_area.'/'.$_controller.".php";
-		$__G = new $_controller($_action);
-
-		// if($_SERVER['REQUEST_METHOD'] == 'POST' || !empty($_GET["method"])) {
-		// 	//require "Controllers/".$_area.'/'.$_controller.".php";
-		// 	//ECHO $_SERVER['REQUEST_METHOD'];
-		// 	$body = new $_controller($_action);
-		// }else if($_area ==="Admin"){
-		// 	//ErrorBase::doLog('session: '.BaseClass::GetSession('login'));
-		// 	//điều hướng khi đã đăng nhập
-		// 	require "Views/_Layout/_AdminLayout.php";
-		// }
-		// else{
-		// 	require "Views/_Layout/_HomeLayout.php";
-		// }
+		//require PATH_APP.'/'.AREA."/Controllers/".$_controller.".php";
+		ControllerLoader::Load($_controller);
+		$__G = new $_controller();
+		$__G->$_action();
 	}
 
 	
