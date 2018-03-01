@@ -21,3 +21,12 @@
         margin: 0 auto;
         margin-top: 10px;
     }
+.icon-grid{
+    width: 50px;
+    height:50px;
+}
+.icon-grid-min{
+    width: 20px;
+    height:20px;
+}
+

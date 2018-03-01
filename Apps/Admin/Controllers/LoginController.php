@@ -32,12 +32,17 @@
 			$User = BaseClass::GetValuePost('user');
 			$Pass = BaseClass::GetValuePost('pass');
 			//ErrorBase::doLog($User."-".$Pass."\n");
-
-			if($this->model->CheckLogin($User, $Pass)){
+			$aUser = new User();
+			$aUser = $this->model->CheckLogin($User, $Pass);
+			//ErrorBase::doLog($aUser->UserId);
+			if($aUser->UserId > 0){
 				//ErrorBase::doLog(count($this->model->CheckLogin($User, $Pass))."\n");
 				$_ReturnPost->Status = 1;
 				//Tạo session và lưu trữ cookie
-				$_SESSION['login'] = 'true';
+				$login = new stdClass();
+				$login->FullName = $aUser->FullName;
+				$login->Image = $aUser->Image;
+				$_SESSION['login'] = $login;
 				$_ReturnPost->Data = 'Admin/Login/Index';
 			}
 			die(json_encode($_ReturnPost));

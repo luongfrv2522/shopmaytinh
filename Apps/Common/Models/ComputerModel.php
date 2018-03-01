@@ -4,8 +4,6 @@
 		//private $Model;
 		public function __construct(){
 			ModelLoader::Load('Computer');
-			ComLoader::Load("Database/Connection.php");
-			ComLoader::Load("Database/BaseMap.php");
 			$this->conn = new Connection();
 			//$this->Model = new Computer(); 
 			

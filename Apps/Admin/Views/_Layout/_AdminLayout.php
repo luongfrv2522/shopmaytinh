@@ -7,7 +7,11 @@
 	<title>ShopMayTinh</title>
 	<base href="<?=BaseURI::getBaseURL()?>/Admin">
   <!-- JQUERY SCRIPTS -->
-  <?php PublicLoader::Load('Content/Scripts/Common.php');?>
+
+  <?php 
+    PublicLoader::Load('Content/Scripts/Common.php');
+    PublicLoader::Load("Content/Css/Common.php");
+  ?>
   <!-- BOOTSTRAP STYLES-->
   <link href="Public/assets/css/bootstrap.css" rel="stylesheet" />
   <!-- FONTAWESOME STYLES-->
@@ -43,11 +47,15 @@
 
     <?php ViewLoader::LoadNoneLayout('LeftMenu.php'); ?>
     <!--begin body -->
-    <?php  require BaseClass::GetSession('_pageBody'); ?>
+    <div id="page-wrapper">
+        <div id="page-inner">
+        <?php  require BaseClass::GetSession('_pageBody'); ?>
+      </div>
+    </div>
     <!--end body -->
   </div>
   <div id="footer-sec">
-    © 2014 YourCompany | Design By : <a href="http://www.binarytheme.com/" target="_blank">BinaryTheme.com</a>
+    © 2018 Nhóm 5 | Design By : <a href="http://www.binarytheme.com/" target="_blank">BinaryTheme.com</a> | Content By : Hạ Văn Lương & Ngô Thị Thắm
   </div>
   <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
   <!-- BOOTSTRAP SCRIPTS -->

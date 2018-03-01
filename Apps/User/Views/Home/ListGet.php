@@ -28,7 +28,7 @@
 					<td><?=$key->ComName?></td>
 					<td><?=$key->Description?></td>
 					<td>
-						<img width="50px" height="50px" src="<?=$key->Image?>">
+						<img class="icon-grid" src="<?=$key->Image?>">
 					</td>
 					<td><?=$key->Price?></td>
 					<td><?=$key->Status?></td>

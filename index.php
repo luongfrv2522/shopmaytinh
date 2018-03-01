@@ -22,6 +22,8 @@
 	ComLoader::Load("BaseClass/Common.php");
 	ComLoader::Load("BaseClass/Return.php");
 	ComLoader::Load("BaseClass/Redirect.php");
+	ComLoader::Load("Database/BaseMap.php");
+	ComLoader::Load("Database/Connection.php");
 	session_start();
 	if (!empty($_GET["c"])) {
 		//$_PageIndex = !empty($_GET["page"])? $_GET["page"] : "none";

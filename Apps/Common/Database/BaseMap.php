@@ -30,7 +30,7 @@
 		///Map dữ liệu $DataArr vào kiểu $obj
 		public static function MapToObject($Data, $obj){
 			$item = new $obj();
-			if($result && mysqli_num_rows($Data)>0){
+			if($Data && mysqli_num_rows($Data)>0){
 				$Data = mysqli_fetch_assoc($Data);
 				foreach ($Data as $key => $value) {
 					$item->$key = $value;
