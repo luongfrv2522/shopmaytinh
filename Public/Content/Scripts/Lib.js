@@ -11,5 +11,10 @@ var Pagination = {
 	setHashParameter:function(pageIndex){
 		var origin = "page-";
 		window.location.hash = origin + pageIndex;
+	},
+	setIndex:function(index, page, size){
+		var rs = index + ((page-1) * size);
+		console.log(rs);
+		return rs;
 	}
 };

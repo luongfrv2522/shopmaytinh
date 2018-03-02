@@ -18,8 +18,12 @@ $login = BaseClass::GetSession('login');
             <a class="active-menu" href="Admin/Login"><i class="fa fa-dashboard "></i>Dashboard</a>
         </li>
         <li>
+            <a href="Admin/Computer"><i class="fa fa-inbox "></i>Quản lý máy tính</a>
+        </li>
+        <li>
             <a href="Admin/UserMger"><i class="fa fa-user "></i>Quản lý tài khoản</a>
         </li>
+        
 </ul>
 </div>
 </nav>

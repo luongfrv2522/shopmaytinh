@@ -83,6 +83,9 @@
 		}
 	}
 	class BaseClass{
+		public static function GetValueGet($key){
+			return isset($_GET[$key])? $_GET[$key] : '';
+		}
 		public static function GetValuePost($key){
 			return isset($_POST[$key])? $_POST[$key] : '';
 		}
@@ -103,6 +106,9 @@
 		}
 		public static function SetDefine($key, $value){
 			define($key, $value);
+		}
+		public static function CheckRequestMethod($method){
+			return ($_SERVER['REQUEST_METHOD'] === $method)? true : false;
 		}
 	}
 

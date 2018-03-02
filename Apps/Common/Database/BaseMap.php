@@ -32,10 +32,13 @@
 			$item = new $obj();
 			if($Data && mysqli_num_rows($Data)>0){
 				$Data = mysqli_fetch_assoc($Data);
+				//echo var_dump($Data);
 				foreach ($Data as $key => $value) {
+					//echo $key.'->'.$value.'<br>'	;
 					$item->$key = $value;
 				}
 			}
+			
 			return $item;
 
 		}

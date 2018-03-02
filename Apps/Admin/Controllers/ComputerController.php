@@ -1,15 +1,15 @@
 <?php 
-
-/**
-* 
-*/
-	class UserMgerController
+	/**
+	* 
+	*/
+	class ComputerController
 	{
+		
 		private $model;
 		public function __construct(){
-			ModelLoader::Load('UserModel');
+			ModelLoader::Load('ComputerModel');
 			//PRINT $_action;
-			$this->model = new UserModel();
+			$this->model = new ComputerModel();
 		}
 		public function Index(){
 			return ViewLoader::LoadAdmin();
@@ -33,14 +33,16 @@
 		}
 		public function InsertOrUpdate(){
 			if(BaseClass::CheckRequestMethod('POST')){
-				$item = new User();
 
-				$item->UserId = BaseClass::GetValuePost('UserId');
-				$item->UserName = BaseClass::GetValuePost('UserName');
-				$item->Password = BaseClass::GetMD5(BaseClass::GetValuePost('Password'));
-				$item->FullName = BaseClass::GetValuePost('FullName');
-				$item->Permission = BaseClass::GetValuePost('Permission');
-				$item->Image = BaseClass::GetValuePost('Image');
+				$item = new Computer();
+				$item->ComId = 0;
+				$item->ComName = $_POST["Name"];
+				$item->Description = $_POST["Desc"];
+				$item->Price = $_POST["Price"];
+				$item->Status = $_POST["Status"];
+				$item->BrandId = $_POST["BrandId"];
+				$item->Posistion = $_POST["Posistion"];
+				$item->Image = $_POST["ImageUrl"];
 				
 
 				$rs = $this->model->InsertOrUpdate($item);
@@ -49,7 +51,7 @@
 			$idd = BaseClass::GetValueGet("id");
 			if($idd !== ''){
 				
-				$_DataResult = new User();
+				$_DataResult = new Computer();
 				$_DataResult = $this->model->Single($idd);
 
 				BaseClass::SetValuePost('_DataResult',$_DataResult);
@@ -63,4 +65,5 @@
 			die($rs? "Thao tác Thành công" : "Thao tác Thất bại");
 		}
 	}
+
 ?>

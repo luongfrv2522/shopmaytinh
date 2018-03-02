@@ -1,4 +1,8 @@
-
+<?php 
+  if(BaseClass::GetSession('login') === ''){
+    Header("location:/"._ROOT."/Admin/Login");
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +16,8 @@
     PublicLoader::Load('Content/Scripts/Common.php');
     PublicLoader::Load("Content/Css/Common.php");
   ?>
+    <!-- PAGE LEVEL STYLES -->
+  <link href="Public/assets/css/bootstrap-fileupload.min.css" rel="stylesheet" />
   <!-- BOOTSTRAP STYLES-->
   <link href="Public/assets/css/bootstrap.css" rel="stylesheet" />
   <!-- FONTAWESOME STYLES-->
@@ -49,8 +55,8 @@
     <!--begin body -->
     <div id="page-wrapper">
         <div id="page-inner">
-        <?php  require BaseClass::GetSession('_pageBody'); ?>
-      </div>
+          <?php  require BaseClass::GetSession('_pageBody'); ?>
+        </div>
     </div>
     <!--end body -->
   </div>
@@ -64,6 +70,8 @@
   <script src="Public/assets/js/jquery.metisMenu.js"></script>
   <!-- CUSTOM SCRIPTS -->
   <script src="Public/assets/js/custom.js"></script>
+  <!-- PAGE LEVEL SCRIPTS -->
+  <script src="Public/assets/js/bootstrap-fileupload.js"></script>
 
   <script type="text/javascript">
     $(document).ready(function() {

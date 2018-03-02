@@ -45,6 +45,8 @@
 		// print "</br>";echo $_SERVER['SERVER_NAME'];
 		//print "</br>";
 		//require PATH_APP.'/'.AREA."/Controllers/".$_controller.".php";
+		
+		/*Run away*/
 		ControllerLoader::Load($_controller);
 		$__G = new $_controller();
 		$__G->$_action();

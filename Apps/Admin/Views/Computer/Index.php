@@ -1,6 +1,6 @@
 
 <div class="col-md-12">
-    <h1 class="page-head-line">Quản lý tài khoản</h1>
+    <h1 class="page-head-line">Quản lý máy tính</h1>
 </div>
 <div class="row">
     <div class="col-md-12">
@@ -9,7 +9,7 @@
             <div class="panel panel-default">
 
                 <div class="panel-heading">
-                    Danh sách Tài khoản
+                    Danh sách Máy tính
                     <div class="pull-right">
                         <button id="btnInsert" act="btnInsert" type="button" class="btn btn-xm btn-primary" value="0">
                             <i class="glyphicon glyphicon-plus"></i>
@@ -49,7 +49,7 @@
         };
 
         $.ajax({
-            url: 'Admin/UserMger/List',
+            url: 'Admin/Computer/List',
             type: 'POST',
             dataType: 'html',
             data: dataMap,
@@ -75,7 +75,7 @@
         $(".Striped-Grid").on('click',"button[act='btnInsert']",function (argument) {
             //debugger;
             $.ajax({
-                url: 'Admin/UserMger/InsertOrUpdate/'+$(this).val(),
+                url: 'Admin/Computer/InsertOrUpdate/'+$(this).val(),
                 type: 'GET',
                 dataType: 'html',
                 beforeSend: function (xhr) {

@@ -10,7 +10,7 @@
 			//ErrorBase::doLog("1. ".$pass."\n");
 			$datalist = $this->conn->ExcuteSQL("SELECT * 
 												FROM users
-												WHERE UserName='{$user}' AND Password='{$pass}'");
+												WHERE UserName='{$user}' AND Password='{$pass}' AND Permission='2'");
 			//ErrorBase::doLog("CheckLogin.".var_dump($datalist));
 			return BaseMap::MapToObject($datalist, new User());
 		}
@@ -65,9 +65,17 @@
 			$sql = "INSERT INTO `users` (`UserId`, `UserName`, `Password`, `FullName`, `Image`, `Permission`) 
 					VALUES (NULL, '{$UserName}', '{$Password}', '{$FullName}', '{$Image}', '{$Permission}')";
 			if($UserId > 0){
-				$sql = "UPDATE `users` SET `UserName` = '{$UserName}', `Password` = '{$Password}', 
+				if($Image ===''){
+					$sql = "UPDATE `users` SET `UserName` = '{$UserName}',
+						`FullName` = '{$FullName}',  `Permission` = '{$Permission}' 
+						WHERE `users`.`UserId` = {$UserId}";
+					}else{
+						$sql = "UPDATE `users` SET `UserName` = '{$UserName}',
 						`FullName` = '{$FullName}', `Image` = '{$Image}', `Permission` = '{$Permission}' 
-						WHERE `users`.`UserId` = 2";
+						WHERE `users`.`UserId` = {$UserId}";
+					}
+				
+				//`Password` = '{$Password},`Image` = '{$Image}','
 			}
 
 			$_Result = $this->conn->ExcuteSQL($sql);
