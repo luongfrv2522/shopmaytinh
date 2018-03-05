@@ -125,11 +125,11 @@
                             <!-- Wrapper for slides -->
                             <div class="carousel-inner" role="listbox">
                                 <div class="item active">
-                                    <img src="Public/Content/Images/Icon/sls01.jpg" alt="Chania">
+                                    <img src="Public/Content/Images/Icon/sls01.jpg" alt="Chania" style="width: 800px;height: 320px;">
                                 </div>
 
                                 <div class="item">
-                                    <img src="Public/Content/Images/Icon/sls02.png" alt="Chania">
+                                    <img src="Public/Content/Images/Icon/sls02.png" alt="Chania" style="width: 800px;height: 320px;">
                                 </div>
                                 <!--   
                                 <div class="item">
@@ -137,7 +137,7 @@
                                 </div>
                                 -->
                                 <div class="item">
-                                    <img src="Public/Content/Images/Icon/sls03.jpg" alt="Flower">
+                                    <img src="Public/Content/Images/Icon/sls03.jpg" alt="Flower" style="width: 800px;height: 320px;">
                                 </div>
                                 <!--  
                                 <div class="item">
@@ -145,7 +145,7 @@
                                 </div>
                                 -->
                                 <div class="item">
-                                    <img src="Public/Content/Images/Icon/sls04.png" alt="Flower">
+                                    <img src="Public/Content/Images/Icon/sls04.png" alt="Flower" style="width: 800px;height: 320px;">
                                 </div>
                             </div>
 
