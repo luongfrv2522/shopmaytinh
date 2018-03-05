@@ -14,7 +14,7 @@
 <h2 class="h2-bar">Tất cả sản phẩm <?=$TenHang?></h2>
 <div  class="row">
     <?php foreach ($_DataResult->DataList as $key): ?>
-        <div class="col-md-3 col-sm-6 product-item text-center" style="max-height: 279px;>
+        <div class="col-md-3 col-sm-6 product-item text-center" style="max-height: 279px;">
         <a href="Main/Detail/<?=$key->ComId?>">
             <img width="80" height="144" src="<?=$key->Image?>">
         </a>

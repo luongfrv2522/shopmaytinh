@@ -23,7 +23,7 @@
 			//print var_dump(BaseMap::MapToList($datalist, new Computer()));
 			return BaseMap::MapToList($datalist, new Computer());
 		}
-		public function GetListS(){
+		public function GetListSearch($key){
 			$datalist = $this->conn->ExcuteSQL("SELECT c.`ComId`, c.`ComName`, c.`Description`, 
 												c.`Image`, c.`Price`, c.`Status`, c.`Posistion`, 
 												c.`BrandId`,b.`BrandName`, c.`Updated`, c.`Created` 
