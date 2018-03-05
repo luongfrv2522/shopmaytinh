@@ -1,5 +1,6 @@
 <?php 
     $idPass = isset($_GET["id"])?$_GET["id"]:0; 
+    BaseClass::SetSession('undisplay','');
 ?>
 
 	<div id="main">
@@ -14,19 +15,21 @@
 	</div>
 <script type="text/javascript">
 	$(document).ready(function() {
+        debugger;
+        $("#search-input").val('<?=BaseClass::GetValuePost('Search')?>');
 		var pageIndex = Pagination.getHashParameter();
         if(pageIndex === ""){
             pageIndex = 1;
         }
         SendPagination(pageIndex);
-        $(".search-form").submit(function(e) {
-            e.preventDefault();
-            SendPagination(pageIndex);
+        // $(".search-form").submit(function(e) {
+        //     e.preventDefault();
+        //     SendPagination(pageIndex);
             
-        })
+        // });
 	});
 	function SendPagination(pageIndex = 1, pageSize = 8){
-        debugger;  
+          
         var search = $("#search-input").val();
         var dataMap = {
             PageIndex : pageIndex,

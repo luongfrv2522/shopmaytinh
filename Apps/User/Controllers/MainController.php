@@ -30,7 +30,7 @@
 			$search = BaseClass::GetValuePost('Search');
 			if($id > 0 && $search ===''){
 				$result->_DataResult = $this->model->GetListPagingB($_PageIndex,$_PageSize, $id);
-			}elseif($id === 0 && $search ===''){
+			}elseif($id <= 0 && $search ===''){
 				$result->_DataResult = $this->model->GetListPaging($_PageIndex,$_PageSize);
 			}elseif ($search !== '') {
 				$result->_DataResult = $this->model->GetListPaging($_PageIndex,$_PageSize,$search);

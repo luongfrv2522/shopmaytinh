@@ -28,6 +28,7 @@
 	ComLoader::Load("Database/BaseMap.php");
 	ComLoader::Load("Database/Connection.php");
 	session_start();
+	BaseClass::SetSession('undisplay','display:none;');
 	if (!empty($_GET["c"])) {
 		//$_PageIndex = !empty($_GET["page"])? $_GET["page"] : "none";
 		$_area = empty($_GET["area"])? "" : $_GET["area"];

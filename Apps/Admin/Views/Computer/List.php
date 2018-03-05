@@ -12,7 +12,7 @@ $_PageIndex = $result->_PageIndex;
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Computer Id</th>
+                    <th>ComId</th>
                     <th>Computer Name</th>
                     <!-- <th>Description</th> -->
                     <th class="text-center">Image</th>

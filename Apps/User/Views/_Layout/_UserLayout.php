@@ -46,9 +46,9 @@
             <div class="row">
                 <!-- search -->
                 <div id="search" class="col-md-4 col-sm-12 col-xs-12">
-                    <form method="post" class="search-form">
+                    <form method="post" action="Main/List" class="search-form">
                         <input type="submit" name="submit" value="">
-                        <input id="search-input" type="text" name="stext" placeholder="Tìm kiếm sản phẩm...">
+                        <input id="search-input" type="text" name="Search" placeholder="Tìm kiếm sản phẩm...">
                     </form>
                 </div>
                 <!-- end search -->
