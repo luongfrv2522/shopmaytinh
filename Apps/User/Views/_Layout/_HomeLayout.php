@@ -1,4 +1,8 @@
-
+<?php 
+	//chuyeen
+	// RedirectToAction('Main/Index');
+	// exit();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

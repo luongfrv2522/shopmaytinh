@@ -1,4 +1,6 @@
 <?php 
+	//Tắt thông báo Warning và Notice
+	error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
 	// Đường dẫn tới hệ  thống
 	define('PATH_SYS', __DIR__ .'/System');
 	define('PATH_APP', __DIR__ . '/Apps');

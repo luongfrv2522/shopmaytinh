@@ -135,7 +135,7 @@
 		//debugger;
 		var id = <?=$ComId?>;
 		var comname = $("#comname").val();
-		var description = $("#description").val();
+		var description = CKEDITOR.instances.description.getData();
 		var price = $("#price").val();
 		var status = $("#status").val();
 		var brandid = $("#brandid").val();

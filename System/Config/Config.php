@@ -1,4 +1,14 @@
 <?php 
-	//Tắt thông báo Warning và Notice
-	error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
+	$_HOST = "localhost";
+	$_DATABASE = "shopmaytinh";
+	$_USER = "UserShopMayTinh";
+	$_PASS = "123456";
+
+
+	define('_HOST', $_HOST);
+	define('_DATABASE', $_DATABASE);
+	define('_USER', $_USER);
+	define('_PASS', $_PASS);
+	
+
 ?>
