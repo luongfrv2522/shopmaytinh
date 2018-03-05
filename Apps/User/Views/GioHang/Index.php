@@ -155,7 +155,7 @@ $gh = BaseClass::GetSession('GioHang');
     </div>
 </div>
 <div id="custom-form" class="col-sm-12">
-        <form id="form-tim-hoa-don" action="" method="">
+        <form class="dlskajdlask">
             <div class="form-inline">
                 <label>Tìm đơn hàng: </label>
                 <select class="form-control" id="fillter">
@@ -170,16 +170,19 @@ $gh = BaseClass::GetSession('GioHang');
         </form>
     </div>
 </div>
-<div id="custom-form" class="col-md-6 col-sm-8 col-xs-12">
-
+<div id="custom-form" name="hoadonajax" class="col-xs-12">
+    <div class="rsearch">
+        
+    </div>
 </div>
 <script type="text/javascript">
     $(document).ready(function() {
-        $('form-tim-hoa-don').submit(function(e) {
+        $('.dlskajdlask').submit(function(e) {
+            //debugger;
             e.preventDefault();
             var datas = {
-                mode : $('#fillter').val();
-                keyS : $('#serda').val();
+                mode : $('#fillter').val(),
+                keyS : $('#serda').val(),
             }
             $.ajax({
                 url: 'GioHang/TimGioHang',
@@ -187,14 +190,8 @@ $gh = BaseClass::GetSession('GioHang');
                 dataType: 'html',
                 data: datas,
                 success : function(result){
-
                     //alert(result);
-                    alert(result.Msg);
-                    window.location.reload();
-                    /*Index cho bảng*/
-                    // $(".index").each(function(index, el) {
-                    //     $(this).html(Pagination.setIndex(parseInt($(this).html()), pageIndex, pageSize));
-                    // });
+                    $('.rsearch').html(result);
                 },
                 error : function(error){
                     alert("Lỗi GetList");

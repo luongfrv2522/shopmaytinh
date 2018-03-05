@@ -93,5 +93,15 @@
 			}
 			return ViewLoader::LoadMain();
 		}
+		public function TimGioHang(){
+			$mode = BaseClass::GetValuePost('mode');
+			$keyS = BaseClass::GetValuePost('keyS');
+			$model = new OrderDetailModel();
+			$rs = $model->GetListSearch($mode, $keyS);
+			if($rs){
+				BaseClass::SetValuePost('rsearch',$rs);
+				ViewLoader::LoadNoneLayout();
+			}
+		}
 	}
  ?>
