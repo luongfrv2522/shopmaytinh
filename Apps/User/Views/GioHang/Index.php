@@ -164,3 +164,6 @@ $gh = BaseClass::GetSession('GioHang');
         </form>
     </div>
 </div>
+<div id="custom-form" class="col-md-6 col-sm-8 col-xs-12">
+    
+</div>
