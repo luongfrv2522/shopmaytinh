@@ -70,7 +70,7 @@
                 <div id="logo" class="col-md-4 col-sm-12 col-xs-12">
                     <h1>
                         <a href="#">
-                            <img src="Public/Content/Images/Icon/logo.png">
+                            <img src="Public/Content/Images/Icon/logo1.png">
                         </a>
                     </h1>
                 </div>
@@ -99,7 +99,7 @@
                     <div id="banner-l">
                         <h2 class="h2-bar">đối tác</h2>
                         <a href="#">
-                            <img class="img-thumbnail" src="Public/Content/Images/Icon/banner01.png">
+                            <img class="img-thumbnail" src="Public/Content/Images/Icon/banner02.jpg">
                         </a>
                     </div>
 
@@ -131,21 +131,21 @@
                                 <div class="item">
                                     <img src="Public/Content/Images/Icon/sls02.png" alt="Chania">
                                 </div>
-
+                                <!--   
+                                <div class="item">
+                                    <img src="Public/Content/Images/Icon/sls03.png" alt="Flower">
+                                </div>
+                                -->
                                 <div class="item">
                                     <img src="Public/Content/Images/Icon/sls03.jpg" alt="Flower">
                                 </div>
-
-                                <div class="item">
-                                    <img src="Public/Content/Images/Icon/sls04.jpg" alt="Flower">
-                                </div>
-
+                                <!--  
                                 <div class="item">
                                     <img src="Public/Content/Images/Icon/sls05.png" alt="Flower">
                                 </div>
-
+                                -->
                                 <div class="item">
-                                    <img src="Public/Content/Images/Icon/sls06.png" alt="Flower">
+                                    <img src="Public/Content/Images/Icon/sls04.png" alt="Flower">
                                 </div>
                             </div>
 
