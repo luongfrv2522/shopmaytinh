@@ -154,16 +154,52 @@ $gh = BaseClass::GetSession('GioHang');
         <?php endif ?>
     </div>
 </div>
-<div id="custom-form" class="col-md-6 col-sm-8 col-xs-12">
-        <form action="GioHang/DatHang" method="POST">
+<div id="custom-form" class="col-sm-12">
+        <form id="form-tim-hoa-don" action="" method="">
             <div class="form-inline">
                 <label>Tìm đơn hàng: </label>
-                <input required="" maxlength="50" type="text" class="form-control" name="name">
+                <select class="form-control" id="fillter">
+                    <option value="1">Tên khách hàng</option>
+                    <option value="2">Email</option>
+                    <option value="3">Số điện thoại</option>
+                    <option value="4">Địa chỉ</option>
+                </select>
+                <input id="serda" required="" maxlength="50" type="text" class="form-control" name="name">
                 <input type="submit" name="submit" class="btn btn-info">
             </div>
         </form>
     </div>
 </div>
 <div id="custom-form" class="col-md-6 col-sm-8 col-xs-12">
-    
+
 </div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('form-tim-hoa-don').submit(function(e) {
+            e.preventDefault();
+            var datas = {
+                mode : $('#fillter').val();
+                keyS : $('#serda').val();
+            }
+            $.ajax({
+                url: 'GioHang/TimGioHang',
+                type: 'POST',
+                dataType: 'html',
+                data: datas,
+                success : function(result){
+
+                    //alert(result);
+                    alert(result.Msg);
+                    window.location.reload();
+                    /*Index cho bảng*/
+                    // $(".index").each(function(index, el) {
+                    //     $(this).html(Pagination.setIndex(parseInt($(this).html()), pageIndex, pageSize));
+                    // });
+                },
+                error : function(error){
+                    alert("Lỗi GetList");
+                }
+            });
+        });
+    });
+</script>
