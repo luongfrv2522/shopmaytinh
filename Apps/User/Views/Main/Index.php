@@ -9,7 +9,7 @@
 			<h2 class="h2-bar">sản phẩm đặc biệt</h2>
 			<div class="row">
 				<?php foreach ($DataS as $key): ?>
-					<div class="col-md-3 col-sm-6 product-item text-center" style="max-height: 279px;>
+					<div class="col-md-3 col-sm-6 product-item text-center" style="max-height: 300px;>
 					<a href="Main/Detail/<?=$key->ComId?>">
 						<img width="80" height="144" src="<?=$key->Image?>">
 					</a>
