@@ -65,7 +65,11 @@
 												c.`Image`, c.`Price`, c.`Status`, c.`Posistion`, 
 												c.`BrandId`,b.`BrandName`, c.`Updated`, c.`Created` 
 												FROM `computers` as c,`brands` as b
-												WHERE c.BrandId = b.BrandId AND c.`ComName` like '%{$search}%'
+												WHERE c.BrandId = b.BrandId 
+												AND (
+														(c.`ComName` like '%{$search}%') 
+														OR (c.`Description` like '%{$search}%')
+													)
 												ORDER BY c.`ComId`
 												LIMIT {$pageIndex},{$pageSize}";
 				$TotalRows =  $this->conn->ExcuteSQL(" SELECT COUNT(ComId) as Total 
