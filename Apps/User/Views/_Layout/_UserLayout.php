@@ -1,4 +1,4 @@
-<?php 
+    <?php 
     $countIn = 0;
     $urlFileCount = 'Public/count.dat';
     if(file_exists($urlFileCount)){
@@ -187,10 +187,10 @@
     <div id="footer">
         <div class="row">
             <div id="footer-main" class="col-md-12 col-sm-12 col-xs-12">
-                <h4>Học viện Công nghệ Vietpro - Vietpro Academy</h4>
-                <p><b>Trụ sở chính:</b> Số B8A Ngõ 18 Võ Văn Dũng, Hoàng Cầu, Đống Đa, Hà Nội | <b>Hotline</b> 0988 550 553</p> 
+                <h4>Phòng bán hàng trực tuyến</h4>
+                <p><b>Trụ sở chính:</b> Tầng 3, Số 152-154 Trần Duy Hưng, Cầu Giấy, Hà Nội. | <b>Hotline</b> 1900 0339</p> 
                 <p><b>Cơ sở 2:</b> Số 25 Ngõ 178/71 Tây Sơn, Đống Đa, Hà Nội | <b>Hotlin</b>e 0988 550 552</p>
-                <p>Bản quyền thuộc Vietpro Academy</p>
+                <p>Email: thienan@gmail.com</p>
             </div>   
         </div>
     </div>
