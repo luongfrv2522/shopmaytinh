@@ -74,6 +74,15 @@
 		}
 
 		public function DatHang(){
+			if(BaseClass::GetValuePost('submit') !== ''){
+				$order = new stdClass();
+				$order->name = BaseClass::GetValuePost('name');
+				$order->mail = BaseClass::GetValuePost('mail');
+				$order->mobi = BaseClass::GetValuePost('mobi');
+				$order->addr = BaseClass::GetValuePost('addr');
+				echo var_dump($order);
+				die();
+			}
 			return ViewLoader::LoadMain();
 		}
 	}

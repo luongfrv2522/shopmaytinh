@@ -40,22 +40,24 @@ $tong = 0;
         </div>
 
         <div id="custom-form" class="col-md-6 col-sm-8 col-xs-12">
-            <form>
+            <form action="GioHang/DatHang" method="POST">
                 <div class="form-group">
                     <label>Tên khách hàng</label>
-                    <input required="" type="text" class="form-control" name="name">
+                    <input required="" maxlength="50" type="text" class="form-control" name="name">
                 </div>
                 <div class="form-group">
                     <label>Địa chỉ Email</label>
-                    <input required="" type="text" class="form-control" name="mail">
+                    <input required="" type="email" class="form-control" name="mail">
                 </div>
                 <div class="form-group">
                     <label>Số Điện thoại</label>
-                    <input required="" type="text" class="form-control" name="mobi">
+                    <input required="" type="number" min="0" minlength="9" class="form-control" name="mobi">
                 </div>
                 <div class="form-group">
                     <label>Địa chỉ nhận hàng</label>
-                    <input required="" type="text" class="form-control" name="addr">
+                    <textarea required="" class="form-control" name="addr" minlength="10" rows="3">
+                        
+                    </textarea>
                 </div>
                 <input type="submit" name="submit" class="btn btn-info">
             </form>
