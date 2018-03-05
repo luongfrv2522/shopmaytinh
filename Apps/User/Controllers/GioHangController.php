@@ -1,6 +1,9 @@
 <?php 
 	//echo __DIR__;
 	class GioHangController{
+		public function __construct(){
+			ModelLoader::Load('OrderDetailModel');
+		}
 		public function Index(){
 			$gh = BaseClass::GetSession('GioHang');
 			$id = isset($_GET["id"]) ? $_GET["id"] : 0;
@@ -76,12 +79,17 @@
 		public function DatHang(){
 			if(BaseClass::GetValuePost('submit') !== ''){
 				$order = new stdClass();
-				$order->name = BaseClass::GetValuePost('name');
-				$order->mail = BaseClass::GetValuePost('mail');
-				$order->mobi = BaseClass::GetValuePost('mobi');
-				$order->addr = BaseClass::GetValuePost('addr');
-				echo var_dump($order);
-				die();
+				$order->Name = BaseClass::GetValuePost('name');
+				$order->Email = BaseClass::GetValuePost('mail');
+				$order->PhoneNum = BaseClass::GetValuePost('mobi');
+				$order->Address = BaseClass::GetValuePost('addr');
+				
+				$model1 = new OrderDetailModel();
+				$_rs = $model1->InsertGioHang($order);
+				if($_rs){
+					BaseClass::SetSession('GioHang','');
+				}
+				return RedirectToAction('GioHang/Index');
 			}
 			return ViewLoader::LoadMain();
 		}

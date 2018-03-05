@@ -154,3 +154,13 @@ $gh = BaseClass::GetSession('GioHang');
         <?php endif ?>
     </div>
 </div>
+<div id="custom-form" class="col-md-6 col-sm-8 col-xs-12">
+        <form action="GioHang/DatHang" method="POST">
+            <div class="form-inline">
+                <label>Tìm đơn hàng: </label>
+                <input required="" maxlength="50" type="text" class="form-control" name="name">
+                <input type="submit" name="submit" class="btn btn-info">
+            </div>
+        </form>
+    </div>
+</div>

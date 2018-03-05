@@ -27,10 +27,13 @@
 			$_PageSize = !empty($_POST["PageSize"])? $_POST["PageSize"] : "8";
 
 			$id = isset($_GET["id"])?$_GET["id"]:0;
-			if($id > 0){
+			$search = BaseClass::GetValuePost('Search');
+			if($id > 0 && $search ===''){
 				$result->_DataResult = $this->model->GetListPagingB($_PageIndex,$_PageSize, $id);
-			}else{
+			}elseif($id === 0 && $search ===''){
 				$result->_DataResult = $this->model->GetListPaging($_PageIndex,$_PageSize);
+			}elseif ($search !== '') {
+				$result->_DataResult = $this->model->GetListPaging($_PageIndex,$_PageSize,$search);
 			}
 			
 			$model1 = new BrandModel();

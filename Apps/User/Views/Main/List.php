@@ -19,12 +19,19 @@
             pageIndex = 1;
         }
         SendPagination(pageIndex);
+        $(".search-form").submit(function(e) {
+            e.preventDefault();
+            SendPagination(pageIndex);
+            
+        })
 	});
 	function SendPagination(pageIndex = 1, pageSize = 8){
-        //debugger;  
+        debugger;  
+        var search = $("#search-input").val();
         var dataMap = {
             PageIndex : pageIndex,
             PageSize : pageSize,
+            Search : search,
         };
 
         $.ajax({
