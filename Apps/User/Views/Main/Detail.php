@@ -5,7 +5,7 @@
 
 <?php if ($_DataResult): ?>
     <div id="product">
-        <div id="prd-thumb" class="col-md-6 col-sm-12 col-xs-12 text-center">
+        <div id="prd-thumb" class="col-md-6 col-sm-12 col-xs-12 text-center" >
             <img width="160px" src="<?=$_DataResult->Image?>">
         </div>
         <div id="prd-intro" class="col-md-6 col-sm-12 col-xs-12">
