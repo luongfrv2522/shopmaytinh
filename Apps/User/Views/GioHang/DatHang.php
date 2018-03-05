@@ -3,6 +3,7 @@ ModelLoader::Load('ComputerModel');
 $model = new ComputerModel();
 $gh = BaseClass::GetSession('GioHang');
     //echo var_dump($gh);
+$tong = 0;
 ?>
 <div id="main">
     <div id="checkout">
@@ -26,9 +27,14 @@ $gh = BaseClass::GetSession('GioHang');
                                 <td><?=$key['total']?></td>
                                 <td><span><?=$item->Price * $key['total']?></span></td>
                             </tr>
+                            <?php $tong+= $item->Price * $key['total']?>
                         <?php endforeach ?>
+                        <tr>
+                            <td>Tổng giá trị hóa đơn:</td>
+                            <td colspan="2"></td>
+                            <td><b><span><?=$tong?></span></b></td>
+                        </tr>
                     <?php endif ?>
-                
 
             </tbody></table>
         </div>
@@ -49,9 +55,9 @@ $gh = BaseClass::GetSession('GioHang');
                 </div>
                 <div class="form-group">
                     <label>Địa chỉ nhận hàng</label>
-                    <input required="" type="text" class="form-control" name="add">
+                    <input required="" type="text" class="form-control" name="addr">
                 </div>
-                <button class="btn btn-info">Mua hàng</button>
+                <input type="submit" name="submit" class="btn btn-info">
             </form>
         </div>
     </div>
