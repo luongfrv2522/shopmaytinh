@@ -6,12 +6,12 @@
 
     $idPass = isset($_GET["id"])?$_GET["id"]:0; 
     
-    $TenHang = '';
+    $TenHang = "\"".BaseClass::GetValuePost('Search')."\"";
     if($result->BrandPass){
-        $TenHang = $result->BrandPass->BrandName;
+        $TenHang = 'Của: '.$result->BrandPass->BrandName;
     }
 ?>
-<h2 class="h2-bar">Tất cả sản phẩm <?='Của: '.$TenHang?></h2>
+<h2 class="h2-bar">Tất cả sản phẩm <?=$TenHang?></h2>
 <div  class="row">
     <?php foreach ($_DataResult->DataList as $key): ?>
         <div class="col-md-3 col-sm-6 product-item text-center">
