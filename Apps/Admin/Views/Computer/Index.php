@@ -99,7 +99,7 @@
         $(".Striped-Grid").on('click',' #btnDelete ',function (argument) {
             if(confirm("Xác nhận xóa id="+ $(this).val())){
                $.ajax({
-                    url: 'Admin/UserMger/Delete',
+                    url: 'Admin/Computer/Delete',
                     type: 'POST',
                     data: {id : $(this).val()},
                     dataType: 'html',

@@ -82,6 +82,7 @@
 			//die(json_encode(array('Status'=>-1)));
 		}
 	}
+	
 	class BaseClass{
 		public static function GetValueGet($key){
 			return isset($_GET[$key])? $_GET[$key] : '';

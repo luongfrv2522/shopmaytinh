@@ -14,7 +14,7 @@ var Pagination = {
 	},
 	setIndex:function(index, page, size){
 		var rs = index + ((page-1) * size);
-		console.log(rs);
+		//console.log(rs);
 		return rs;
 	}
 };

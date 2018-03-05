@@ -18,6 +18,9 @@ $login = BaseClass::GetSession('login');
             <a class="active-menu" href="Admin/Login"><i class="fa fa-dashboard "></i>Dashboard</a>
         </li>
         <li>
+            <a href="Admin/Brand"><i class="glyphicon glyphicon-tower"></i>Quản lý hãng sản phẩm</a>
+        </li>
+        <li>
             <a href="Admin/Computer"><i class="fa fa-inbox "></i>Quản lý máy tính</a>
         </li>
         <li>

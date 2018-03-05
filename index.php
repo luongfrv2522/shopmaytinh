@@ -4,6 +4,7 @@
 	define('PATH_APP', __DIR__ . '/Apps');
 	define('PATH_ROOT', __DIR__);
 	define('_ROOT', 'shopmaytinh');
+	define('ImageDefault','Public/Content/Images/default.png');
 	//Các thư viện loader
 	require PATH_SYS.'/Loader/AutoLoad.php';
 	$Loader = array(
@@ -34,7 +35,7 @@
 		$_action = $_GET["a"];
 		$_id = $_GET["id"];
 		// print "controller: ".$_controller;
-		//  print "</br>";
+		// print "</br>";
 		// print "action: ".$_action;
 		// print "</br>";
 		// print "id: ".$_id;

@@ -8,6 +8,7 @@
 		private $model;
 		public function __construct(){
 			ModelLoader::Load('ComputerModel');
+			ModelLoader::Load('BrandModel');
 			//PRINT $_action;
 			$this->model = new ComputerModel();
 		}
@@ -32,30 +33,31 @@
 			exit("rỗng!");
 		}
 		public function InsertOrUpdate(){
+			$_DataResult = new stdClass();
 			if(BaseClass::CheckRequestMethod('POST')){
 
 				$item = new Computer();
-				$item->ComId = 0;
-				$item->ComName = $_POST["Name"];
-				$item->Description = $_POST["Desc"];
+				$item->ComId = BaseClass::GetValuePost("ComId");
+				$item->ComName = $_POST["ComName"];
+				$item->Description = $_POST["Description"];
 				$item->Price = $_POST["Price"];
 				$item->Status = $_POST["Status"];
 				$item->BrandId = $_POST["BrandId"];
 				$item->Posistion = $_POST["Posistion"];
-				$item->Image = $_POST["ImageUrl"];
+				$item->Image = $_POST["Image"];
 				
 
 				$rs = $this->model->InsertOrUpdate($item);
 				 die($rs>0? "Thao tác Thành công" : "Thao tác Thất bại");
 			}
+			$model1 = new BrandModel();
+			$_DataResult->DataBrand = $model1->GetList();
+
 			$idd = BaseClass::GetValueGet("id");
 			if($idd !== ''){
-				
-				$_DataResult = new Computer();
-				$_DataResult = $this->model->Single($idd);
-
-				BaseClass::SetValuePost('_DataResult',$_DataResult);
+				$_DataResult->DataCom = $this->model->Single($idd);
 			}
+			BaseClass::SetValuePost('_DataResult',$_DataResult);
 			return ViewLoader::LoadNoneLayout();
 		}
 		public function Delete(){

@@ -86,5 +86,8 @@
 		public static function LoadUser($path=''){
 			return ViewLoader::Load('_HomeLayout',$path,true);
 		}
+		public static function LoadMain($path=''){
+			return ViewLoader::Load('_UserLayout',$path,true);
+		}
 	}
 ?>

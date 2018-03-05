@@ -4,7 +4,7 @@
 	$UserId = 0;
 	$FullName = '';
 	$UserName = '';
-	$Image = '';
+	$Image = ImageDefault;
 	$Admin = '';
 	$Password = '';
 	$_DataResult = BaseClass::GetValuePost('_DataResult');
@@ -29,23 +29,29 @@
 		<form id="formInsert" role="form">
 			<div class="form-group">
 				<label>Tên đăng nhập</label>
-				<input id="user" class="form-control" type="text" maxlength="50" minlength="6" value="<?=$UserName?>">
+				<input id="user" class="form-control" type="text" maxlength="50" minlength="6" required value="<?=$UserName?>">
 			</div>
 
 			<div class="form-group" style="<?=$dis?>">
 				<label>Mật khẩu</label>
-				<input id="pass" class="form-control" type="password" minlength="6" maxlength="50" value="<?=$Password?>" >
+				<input id="pass" class="form-control" type="password" minlength="6" maxlength="50" value="<?=$Password?>" required>
 			</div>
 			
 			<div class="form-group">
 				<label>Tên đầy đủ</label>
-				<input id="name" class="form-control" type="text" maxlength="255" minlength="1" value="<?=$FullName?>">
+				<input id="name" class="form-control" type="text" maxlength="255" minlength="1" value="<?=$FullName?>" required>
 			</div>
 			<div class="form-group">
                 <label>Loại tài khoản</label>
-                <select id="Per" class="form-control" value="<?=$Admin?>">
+                <select id="Per" class="form-control" value="">
                     <option value="0"> Người mua hàng </option>
                     <option value="2">Admin</option>
+                    <script type="text/javascript">
+                    	$(function() {
+						    var temp="<?=$Admin?>"; 
+						    $("#Per").val(temp);
+						});
+                    </script>
                 </select>
             </div>
             <div class="form-group">
@@ -59,7 +65,7 @@
 </div>
 <script type="text/javascript">
 	$(document).ready(function() {
-		$("#submitInsert").click(function(event){
+		$("#formInsert").submit(function(event){
 			//event.preventDefault();
 			SendUploadAjax();
 			InsertAjax();

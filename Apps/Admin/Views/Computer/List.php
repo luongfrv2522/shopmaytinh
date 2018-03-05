@@ -14,13 +14,12 @@ $_PageIndex = $result->_PageIndex;
                     <th>#</th>
                     <th>Computer Id</th>
                     <th>Computer Name</th>
-                    <th>Description</th>
+                    <!-- <th>Description</th> -->
                     <th class="text-center">Image</th>
                     <th class="text-center">Price</th>
                     <th class="text-center">BrandName</th>
                     <th>Posistion</th>
-                    <th>Created</th>
-                    <th>Updated</th>
+                    <th>Status</th>
                     <th class="text-center">Action</th>
                 </tr>
             </thead>
@@ -30,18 +29,21 @@ $_PageIndex = $result->_PageIndex;
                         <td class="index"><?=$index++?></td>
                         <td><?=$key->ComId?></td>
                         <td><?=$key->ComName?></td>
-                        <td><?=$key->Description?></td>
+                        <!-- <td><?=$key->Description?></td> -->
                         <td class="text-center"><img class="icon-grid-min" src="<?=$key->Image?>"></td>
                         <td><?=$key->Price?></td>
-                        <td><?=$key->Status?></td>
-                        <td><?=$key->BrandId?></td>
                         <td><?=$key->BrandName?></td>
                         <td><?=$key->Posistion?></td>
-                        <td class="text-center">
-                            <button id="btnEdit" act="btnInsert" type="button" class="btn btn-xs btn-primary" value="<?=$key->UserId?>">
+                        <?php if ($key->Status > 0): ?>
+                            <td>Còn hàng</td>
+                        <?php else: ?>
+                            <td>Hết hàng</td>
+                        <?php endif ?>
+                        <td class="text-center" style="min-width: 70px;">
+                            <button id="btnEdit" act="btnInsert" type="button" class="btn btn-xs btn-primary" value="<?=$key->ComId?>">
                                 <i class="glyphicon glyphicon-edit"></i>
                             </button>
-                            <button id="btnDelete" type="button" class="btn btn-xs btn-danger" value="<?=$key->UserId?>">
+                            <button id="btnDelete" type="button" class="btn btn-xs btn-danger" value="<?=$key->ComId?>">
                                 <i class="glyphicon glyphicon-remove"></i>
                             </button>
                         </td>
